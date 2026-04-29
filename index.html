@@ -1,109 +1,175 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <title>대세대인법</title>
-        <style>
-            body {
-                font-family: "Noto Serif KR", serif;
-                line-height: 1.8;
-                margin-left: 2em;
-            }
-            h2 {
-                margin: 0em;
-            }
-            table {
-                margin-top: 1em;
-                margin-bottom: 1em;
-            }
-            td {
-                vertical-align: top;
-            }
-            td:first-child {
-                font-weight: bold;
-                width: 15em;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>대세대인법(對世對人法)</h1>
-        <h2>제1편 총칙</h2>
-        <h2>제1장 통칙</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td>제1조(내외역)</td>
-                    <td>
-                        개인은 고유의 내역과 외역을 가진다.
-                    </td>
-                </tr>
-                <tr>
-                    <td>제2조(성세성인)</td>
-                    <td>
-                        ① 세상은 인간과 인간이 아닌 생물과 비생물로 구성된다.<br>
-                        ② 인간은 외형과 사고로 구성된다.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>제2장 인간</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td>제3조(성별)</td>
-                    <td>
-                        모든 인간은 남성이거나 여성이다.
-                    </td>
-                </tr>
-                <tr>
-                    <td>제4조(사고)</td>
-                    <td>
-                        모든 인간은 감정표현 이상의 사고를 한다.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>제2편 대인법(對人法)</h2>
-        <h2>제1장 존중</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td>제5조(존중에 관한 원칙)</td>
-                    <td>
-                        모든 인간은 인간을 차별 있이 존중한다.
-                    </td>
-                </tr>
-                <tr>
-                    <td>제6조(존중의 예외)</td>
-                    <td>
-                        제3조 내지는 제4조에 반하는 인간은 존중하지 아니한다.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>제2장 가치</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td>제7조(가치)</td>
-                    <td>
-                        인간은 차등 있는 가치를 갖는다.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h2>제1절 가치판단</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td>제8조(가치판단)</td>
-                    <td>
-                        ① 삶의 목표가 뚜렷한 자는 그렇지 않은 자보다 가치가 높다.<br>
-                        ② 전항에서 삶의 목표를 위해 현재 노력하는 자는 그렇지 않은 자보다 가치가 높다.<br>
-                        ③ 제한 없이 즐길 수 있는 취미를 가진 자는 그렇지 않은 자보다 가치가 높다.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+<head>
+    <title>대세대인법</title>
+    <style>
+        body {
+            font-family: "Noto Serif KR", serif;
+            line-height: 1.8;
+            margin-left: 2em;
+
+            counter-reset: part article;
+        }
+
+        h1 {
+            margin-bottom: 1em;
+        }
+
+        .part {
+            counter-increment: part;
+            counter-reset: chapter;
+            margin: 0;
+        }
+
+        .part::before {
+            content: "제" counter(part) "편 ";
+            font-weight: bold;
+        }
+
+        .chapter {
+            counter-increment: chapter;
+            counter-reset: section;
+            margin: 0;
+        }
+
+        .chapter::before {
+            content: "제" counter(chapter) "장 ";
+            font-weight: bold;
+        }
+
+        .section {
+            counter-increment: section;
+            margin: 0;
+        }
+
+        .section::before {
+            content: "제" counter(section) "절 ";
+            font-weight: bold;
+        }
+
+        .law-table {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            border-collapse: collapse;
+        }
+
+        .law-table tr {
+            counter-increment: article;
+        }
+
+        .law-table td {
+            vertical-align: top;
+            padding: 0.2em 0;
+        }
+
+        .law-table td:first-child {
+            font-weight: bold;
+            width: 15em;
+            padding-right: 1em;
+        }
+
+        .law-table td:first-child::before {
+            content: "제" counter(article) "조";
+            margin-right: 0.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>대세대인법(對世對人法)</h1>
+
+    <h2 class="part">총칙</h2>
+    <h2 class="chapter">통칙</h2>
+    <table class="law-table">
+        <tbody>
+            <tr>
+                <td>(내외역)</td>
+                <td>
+                    개인은 고유의 내역과 외역을 가진다.
+                </td>
+            </tr>
+            <tr>
+                <td>(성세성인)</td>
+                <td>
+                    ① 세상은 인간과 인간이 아닌 생물과 비생물로 구성된다.<br>
+                    ② 인간은 외형과 사고로 구성된다.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="chapter">인간</h2>
+    <table class="law-table">
+        <tbody>
+            <tr>
+                <td>(성별)</td>
+                <td>
+                    모든 인간은 남성이거나 여성이다.
+                </td>
+            </tr>
+            <tr>
+                <td>(사고)</td>
+                <td>
+                    모든 인간은 감정표현 이상의 사고를 한다.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="part">대인법(對人法)</h2>
+    <h2 class="chapter">존중</h2>
+    <table class="law-table">
+        <tbody>
+            <tr>
+                <td>(존중에 관한 원칙)</td>
+                <td>
+                    모든 인간은 인간을 차별 있이 존중한다.
+                </td>
+            </tr>
+            <tr>
+                <td>(존중의 차등)</td>
+                <td>
+                    더 가치있는 인간은 더 존중받아 마땅하다.
+                </td>
+            </tr>
+            <tr>
+                <td>(존중의 예외)</td>
+                <td>
+                    제3조 내지는 제4조에 반하는 인간은 존중하지 아니한다.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="chapter">가치</h2>
+    <table class="law-table">
+        <tbody>
+            <tr>
+                <td>(가치)</td>
+                <td>
+                    인간은 차등 있는 가치를 갖는다.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="section">가치판단</h2>
+    <table class="law-table">
+        <tbody>
+            <tr>
+                <td>(가치판단)</td>
+                <td>
+                    ① 삶의 목표가 뚜렷한 자는 그렇지 않은 자보다 가치가 높다.<br>
+                    ② 전항에서 삶의 목표를 위해 현재 노력하고 있는 자는 그렇지 않은 자보다 가치가 높다.
+                </td>
+            </tr>
+            <tr>
+                <td>(가치판단)</td>
+                <td>
+                    ① 즐길 수 있는 취미를 가진 자는 그렇지 않은 자보다 가치가 높다.<br>
+                    ② 전항에서 해당 취미를 제한 없이 즐길 수 있는 자는 그렇지 않은 자보다 가치가 높다.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
 </html>
